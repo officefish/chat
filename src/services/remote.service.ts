@@ -9,6 +9,14 @@ export const useNewAssistant = () => {
     return { data, trigger, serverError }
 }
 
+export const useNewChat = () => {
+  const { data, trigger, serverError } = useAxiosPostTrigger<IStandartResponse>({
+    route: 'messenger/channels',
+  })
+
+  return { data, trigger, serverError }
+}
+
 export const useUploadFiles = () => {
     const { data, trigger, serverError } = useAxiosPostTrigger<IStandartResponse>({
       route: 'upload',

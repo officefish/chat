@@ -49,3 +49,21 @@ export function useNameValidator() {
   
     return { register, handleSubmit, errors }
   }
+
+  export function useNewChatValidator() {
+    
+    const schema = z.object({
+      name: z.string(),
+      source: z.string(),
+    })
+  
+    const {
+      register,
+      handleSubmit,
+      formState: { errors },
+    } = useForm({
+      resolver: zodResolver(schema),
+    })
+  
+    return { register, handleSubmit, errors }
+  }

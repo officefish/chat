@@ -33,6 +33,16 @@ export interface IAssistant {
   role: string
   hello: string
   task: string
-  instruction: string
+  instruction?: string
   gpt_model?: number 
+}
+
+export interface IFile {
+  id: string
+  file: string
+}
+
+export interface IChat {
+  name: string
+  source: string
 }

@@ -17,8 +17,8 @@ const NewFile: FC<INewFileProps> = () => {
     }
 
     return (
-        <div className="w-full h-screen flex items-center justify-center">
-            <div className="card w-96 bg-primary text-primary-content">
+        <div className="w-full h-screen flex items-start justify-start">
+            <div className="card w-96 bg-primary text-primary-content mt-[3.7rem] ml-[1rem]">
                 <form onSubmit={handleSubmit}  className="card-body">
                     <h2 className="card-title px-5">File Upload!</h2>
                     <input type="file" className="file-input file-input-bordered w-full max-w-xs" />
