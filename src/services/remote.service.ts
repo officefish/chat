@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 import { IStandartResponse, useAxiosGetTrigger, useAxiosPostTrigger } from "./axios.service"
 
-export const usePostForm = () => {
+export const useNewAssistant = () => {
     const { data, trigger, serverError } = useAxiosPostTrigger<IStandartResponse>({
-      route: 'remote',
+      route: 'messenger/assistants',
     })
   
     return { data, trigger, serverError }

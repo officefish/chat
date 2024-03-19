@@ -29,3 +29,23 @@ export function useNameValidator() {
   
     return { register, handleSubmit, errors }
   }
+
+  export function useNewAssistantValidator() {
+    
+    const schema = z.object({
+      role: z.string(),
+      hello: z.string(),
+      task: z.string(),
+      instruction: z.string(),
+    })
+  
+    const {
+      register,
+      handleSubmit,
+      formState: { errors },
+    } = useForm({
+      resolver: zodResolver(schema),
+    })
+  
+    return { register, handleSubmit, errors }
+  }

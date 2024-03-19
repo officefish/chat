@@ -1,7 +1,13 @@
 enum EMenuState {
-  FORM,
-  UPLOAD,
-  CHAT,
+  ASSISTANTS_NEW,
+  ASSISTANTS_LIST,
+  CHATS_NEW,
+  CHATS_CURRENT,
+  CHATS_LIST,
+  FILES_NEW,
+  FILES_LIST,
+  STATS,
+  BILLING
 }
 
 interface IMenuItem {
@@ -9,5 +15,24 @@ interface IMenuItem {
   title: string
 }
 
-export type { IMenuItem }
+interface IMenuBlock {
+  summary: string
+  items: IMenuItem[]
+  open: boolean
+}
+
+interface IMenu {
+   blocks: IMenuBlock[]  
+}
+
+export type { IMenuItem, IMenuBlock, IMenu }
 export { EMenuState }
+
+export interface IAssistant {
+  id?: number | string
+  role: string
+  hello: string
+  task: string
+  instruction: string
+  gpt_model?: number 
+}

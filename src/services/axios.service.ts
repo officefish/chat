@@ -7,13 +7,15 @@ export interface IStandartResponse {
   message: string
 }
 
-const HOST = 'localhost'
-const PORT = 8001
+const HOST = 'a421b31cceec.vps.myjino.ru'
+const PORT = 443
 
-const API_PREFIX = 'api/v1'
+const API_PREFIX = 'api'
+
+const PROTOCOL = 'https'
 
 export const useAxiosPostTrigger = <T = object>({
-  protocol = 'http',
+  protocol = PROTOCOL,
   api = API_PREFIX,
   route = 'me',
   input = null,
@@ -30,7 +32,7 @@ export const useAxiosPostTrigger = <T = object>({
   const [port] =useState(PORT) 
 
   useEffect(() => {
-    const url = `${protocol}://${host}:${port}/${api}`
+    const url = `${protocol}://${host}/${api}`
     setBaseUrl(url)
   }, [api, host, port, protocol])
 
@@ -57,7 +59,7 @@ export const useAxiosPostTrigger = <T = object>({
         withCredentials,
       }
       const params = JSON.stringify({ ...data })
-      const url = `${baseUrl}/${route}`
+      const url = `${baseUrl}/${route}/`
       axios
         .post(url, params, options)
         .then((response:any) => handleResponseData(response.data))
@@ -82,7 +84,7 @@ export const useAxiosPostTrigger = <T = object>({
 }
 
 export const useAxiosPutTrigger = <T = object>({
-  protocol = 'http',
+  protocol = PROTOCOL,
   api = API_PREFIX,
   route = 'me',
   headers = {
@@ -99,7 +101,7 @@ export const useAxiosPutTrigger = <T = object>({
 
 
   useEffect(() => {
-    const url = `${protocol}://${host}:${port}/${api}`
+    const url = `${protocol}://${host}/${api}`
     setBaseUrl(url)
   }, [api, host, port, protocol])
 
@@ -151,7 +153,7 @@ export const useAxiosPutTrigger = <T = object>({
 }
 
 export const useAxiosDeleteTrigger = <T = object>({
-  protocol = 'http',
+  protocol = PROTOCOL,
   api = API_PREFIX,
   route = 'me',
   headers = {
@@ -167,7 +169,7 @@ export const useAxiosDeleteTrigger = <T = object>({
   const [data, setData] = useState<T | null>()
 
   useEffect(() => {
-    const url = `${protocol}://${host}:${port}/${api}`
+    const url = `${protocol}://${host}/${api}`
     setBaseUrl(url)
   }, [api, host, port, protocol])
 
@@ -219,7 +221,7 @@ export const useAxiosDeleteTrigger = <T = object>({
 }
 
 export const useAxiosGetTrigger = <T = object>({
-  protocol = 'http',
+  protocol = PROTOCOL,
   api = API_PREFIX,
   route = 'me',
   headers = {
@@ -235,7 +237,7 @@ export const useAxiosGetTrigger = <T = object>({
   const [data, setData] = useState<T | null>()
 
   useEffect(() => {
-    const url = `${protocol}://${host}:${port}/${api}`
+    const url = `${protocol}://${host}/${api}`
     setBaseUrl(url)
   }, [api, host, port, protocol])
 

@@ -1,8 +1,8 @@
 import { useUploadFiles } from '@/services/remote.service'
 import { FC, SyntheticEvent, useEffect } from 'react'
 
-interface IFileUploadProps {}
-const FileUpload: FC<IFileUploadProps> = () => {
+interface INewFileProps {}
+const NewFile: FC<INewFileProps> = () => {
     
     const { data, trigger } = useUploadFiles()
 
@@ -28,4 +28,4 @@ const FileUpload: FC<IFileUploadProps> = () => {
         </div>
     )
 }
-export default FileUpload
+export default NewFile
